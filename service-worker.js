@@ -16,6 +16,8 @@ self.addEventListener('install', function (event) {
       '/pages/game-detail/game-details.html',
       '/pages/game-creation/game-creation.css',
       '/pages/game-creation/game-creation.html',
+      '/pages/game-filter/game-filter.css',
+      '/pages/game-filter/game-filter.html'
     ]);
   });
 });

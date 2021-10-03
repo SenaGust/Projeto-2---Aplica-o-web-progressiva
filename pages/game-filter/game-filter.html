@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>repl.it</title>
     <link href="../../style.css" rel="stylesheet" type="text/css" />
-    <link href="game-creation.css" rel="stylesheet" type="text/css" />
+    <link href="game-filter.css" rel="stylesheet" type="text/css" />
     <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
@@ -19,22 +19,16 @@
           />
         </svg>
       </a>
-      <h2>Criar um jogo</h2>
+      <h2>Filtrar jogos</h2>
     </header>
     <main>
       <form action="../../index.html">
         <div>
-          <label for="name">Nome:</label>
-          <br />
-          <input type="text" id="name" name="name" required />
-          <br />
-        </div>
-
-        <div>
           <label for="status">Status:</label>
           <br />
-          <select id="status" name="status" required>
-            <option selected>Lista de desejo</option>
+          <select id="status" name="status">
+            <option selected value="null">Escolha uma opção</option>
+            <option>Lista de desejo</option>
             <option>Em progresso</option>
             <option>Finalizado</option>
           </select>
@@ -44,8 +38,9 @@
         <div>
           <label for="genero">Gênero:</label>
           <br />
-          <select id="genero" name="genero" required>
-            <option selected>Ação</option>
+          <select id="genero" name="genero">
+            <option value="null" selected>Escolha uma opção</option>
+            <option>Ação</option>
             <option>Aventura</option>
             <option>Estratégia</option>
             <option>RPG</option>
@@ -59,24 +54,11 @@
         </div>
 
         <div>
-          <label for="status">Descrição:</label>
-          <br />
-          <textarea id="status" name="status" required rows="3"></textarea>
-          <br />
-        </div>
-
-        <div>
-          <label for="data">Início:</label>
-          <br />
-          <input type="date" id="data" name="data" required />
-          <br />
-        </div>
-
-        <div>
           <label for="nota">Nota:</label>
           <br />
           <select id="nota" name="nota">
-            <option selected>1</option>
+            <option value="null" selected>Escolha uma opção</option>
+            <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
@@ -88,7 +70,7 @@
           <button>
             <a href="../../index.html">Cancelar</a>
           </button>
-          <button type="submit">Cadastrar</button>
+          <button type="submit">Filtrar</button>
         </div>
       </form>
     </main>

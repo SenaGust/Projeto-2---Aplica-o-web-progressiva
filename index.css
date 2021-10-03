@@ -9,6 +9,13 @@ svg {
   fill: black;
 }
 
+header > div > a {
+  all: unset;
+  display: inline-block;
+  height: 32px !important;
+  width: 32px !important;
+}
+
 main {
   display: grid;
   grid-row-gap: 16px;
