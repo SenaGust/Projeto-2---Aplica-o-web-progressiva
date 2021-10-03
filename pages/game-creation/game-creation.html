@@ -24,9 +24,9 @@
     <main>
       <form action="../../index.html">
         <div>
-          <label for="name">Nome:</label>
+          <label for="nome">Nome:</label>
           <br />
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="nome" name="nome" required />
           <br />
         </div>
 
@@ -59,9 +59,14 @@
         </div>
 
         <div>
-          <label for="status">Descrição:</label>
+          <label for="descricao">Descrição:</label>
           <br />
-          <textarea id="status" name="status" required rows="3"></textarea>
+          <textarea
+            id="descricao"
+            name="descricao"
+            required
+            rows="3"
+          ></textarea>
           <br />
         </div>
 
@@ -88,9 +93,11 @@
           <button>
             <a href="../../index.html">Cancelar</a>
           </button>
-          <button type="submit">Cadastrar</button>
+          <button id="create-button" type="submit">Cadastrar</button>
         </div>
       </form>
     </main>
+    <script src="game-creation.js"></script>
+    <script src="../../gameState.js"></script>
   </body>
 </html>

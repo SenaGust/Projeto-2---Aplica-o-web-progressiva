@@ -12,25 +12,30 @@ const searchValues = new URLSearchParams(window.location.search);
 const statusFilterValue = searchValues.get("status");
 const generoFilterValue = searchValues.get("genero");
 const notaFilterValue = searchValues.get("nota");
-if (notaFilterValue || generoFilterValue || notaFilterValue) {
-  console.log(statusFilterValue, generoFilterValue, notaFilterValue);
-  document.getElementById("list-games").innerHTML = filterGame({
-    status: statusFilterValue !== 'null' ? decodeURI(statusFilterValue) : undefined,
-    genero: generoFilterValue !== 'null' ? decodeURI(generoFilterValue) : undefined,
-    nota: notaFilterValue !== 'null' ? decodeURI(notaFilterValue) : undefined,
-  }).map((jogo) => formatJogos(jogo));
-} else {
-  document.getElementById("list-games").innerHTML = jogos.map((jogo) =>
-    formatJogos(jogo)
-  );
-}
+
+document.getElementById("list-games").innerHTML = filterGame({
+  status:
+    searchValues.has("nota") && statusFilterValue !== "null"
+      ? decodeURI(statusFilterValue)
+      : null,
+  genero:
+    searchValues.has("nota") && generoFilterValue !== "null"
+      ? decodeURI(generoFilterValue)
+      : null,
+  nota:
+    searchValues.has("nota") && notaFilterValue !== "null"
+      ? decodeURI(notaFilterValue)
+      : null,
+})
+  .map((jogo) => formatJogos(jogo))
+  .join("");
 
 const setSearchFunction = (event) => {
   event.preventDefault();
   const searchValue = document.getElementById("search").value;
 
-  document.getElementById("list-games").innerHTML = searchGame(searchValue).map(
-    (jogo) => formatJogos(jogo)
-  );
+  document.getElementById("list-games").innerHTML = searchGame(searchValue)
+    .map((jogo) => formatJogos(jogo))
+    .join("");
 };
 document.getElementById("search-button").onclick = setSearchFunction;

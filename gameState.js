@@ -1,34 +1,27 @@
-var jogos = [{id: 'string', nome: 'string', status: 'Lista de desejo', genero: 'string', dataInicial: Date.now().toLocaleString(), descricao: 'string', nota: 1}]; //type => {id: string, nome: string, status: string, genero: string, dataInicial: Date, descricao: string, nota: number}
-
 const uniqueId = () => {
-  const lastId = JSON.parse(localStorage.getItem("lastId"));
-  let newlastId = lastId ? Number(lastId) + 1 : 0;
+  const lastId = localStorage.getItem("lastId");
+  let newlastId = (lastId ? parseInt(lastId) + 1 : 0).toString();
   localStorage.setItem("lastId", newlastId);
   return newlastId;
 };
 
-onload = () => {
-  const getJogosLocalStorage = JSON.parse(localStorage.getItem("jogos"));
-  if (getJogosLocalStorage) {
-    jogos = getJogosLocalStorage;
-  }
-};
-
-var createGame = ({ nome, status, genero, initialDate, nota, descricao }) => {
+var createGame = ({ nome, status, genero, dataInicial, nota, descricao }) => {
+  let jogos = JSON.parse(localStorage.getItem("jogos"));
   jogos.push({
     id: uniqueId(),
     nome,
     status,
     genero,
-    initialDate,
+    dataInicial,
     nota,
     descricao,
   });
-  console.log("jogos", jogos);
   localStorage.setItem("jogos", JSON.stringify(jogos));
 };
 
 var editGame = (id, { nome, status, genero, dataInicial, nota, descricao }) => {
+  let jogos = JSON.parse(localStorage.getItem("jogos"));
+
   const jogosAtualizados = jogos.map((jogo) => {
     if (jogo.id === id) {
       return { id, nome, status, genero, dataInicial, nota, descricao };
@@ -36,42 +29,41 @@ var editGame = (id, { nome, status, genero, dataInicial, nota, descricao }) => {
 
     return jogo;
   });
-  console.log("jogos", jogosAtualizados);
+  jogos = jogosAtualizados;
   localStorage.setItem("jogos", JSON.stringify(jogosAtualizados));
 };
 
 var detalherDeUmJogo = (id) => {
-  console.log("jogos", jogos);
+  let jogos = JSON.parse(localStorage.getItem("jogos"));
+
   return jogos.find((jogo) => jogo.id === id);
 };
 
 var deleteGame = (id) => {
+  let jogos = JSON.parse(localStorage.getItem("jogos"));
+
   const jogosAtualizados = jogos.filter((jogo) => jogo.id !== id);
-  console.log("jogos", jogosAtualizados);
+  jogos = jogosAtualizados;
   localStorage.setItem("jogos", JSON.stringify(jogosAtualizados));
 };
 
 var searchGame = (nomeProcurado) => {
-  console.log("jogos", jogos);
-  return jogos.filter((jogo) => jogo.nome.includes(nomeProcurado));
+  let jogos = JSON.parse(localStorage.getItem("jogos"));
+
+  return jogos.filter((jogo) => jogo.nome.toLowerCase().includes(nomeProcurado.toLowerCase()));
 };
 
-var filterGame = ({status, genero, nota}) => {
-  let result = jogos;
-  console.log(status, genero, nota);
-  console.log(result);
+var filterGame = ({ status, genero, nota }) => {
+  let result = JSON.parse(localStorage.getItem("jogos"));
 
   if (status) {
-    result = result.filter((jogo) => jogo.status === status);
+    result = result.filter((jogo) => jogo.status.toLowerCase() === status.toLowerCase());
   }
-  console.log(result);
   if (genero) {
-    result = result.filter((jogo) => jogo.genero === genero);
+    result = result.filter((jogo) => jogo.genero.toLowerCase() === genero.toLowerCase());
   }
-  console.log(result);
   if (nota) {
     result = result.filter((jogo) => jogo.nota >= nota);
   }
-  console.log(result);
   return result;
 };
