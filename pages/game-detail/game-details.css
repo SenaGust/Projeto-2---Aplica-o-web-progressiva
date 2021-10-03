@@ -1,0 +1,47 @@
+header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+header > a > svg {
+  margin-right: 8px;
+}
+
+svg {
+  height: 32px;
+  width: 32px;
+  fill: black;
+  display: flex;
+  align-items: center;
+}
+
+main > #game-image-container {
+  height: 64px;
+  width: 100%;
+  background-color: gray;
+}
+
+main > #game-details {
+  padding: 16px;
+  border: 1px solid gray;
+}
+
+main > #game-details > h2 {
+  margin-bottom: 8px;
+}
+
+main > #game-details > p {
+  display: block;
+  padding-bottom: 4px;
+}
+
+main > #game-details > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main > #game-details > div > div > svg {
+  margin-left: 8px;
+}

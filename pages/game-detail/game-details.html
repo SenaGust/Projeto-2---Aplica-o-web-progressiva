@@ -5,20 +5,65 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="../../style.css" rel="stylesheet" type="text/css" />
+    <link href="game-details.css" rel="stylesheet" type="text/css" />
     <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
-    <script src="script.js"></script>
-    <header id="header">
-      <h2>Listar jogos</h2>
+    <header>
+      <a href="../../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </a>
+      <h2>Detalhes de um jogo</h2>
     </header>
     <main>
-      <div id="jogo-id-1">
-        <h2>Jogo 1</h2>
-        <p>Status:</p>
-        <p>Genero:</p>
-        <p>Nota: 3/5</p>
+      <div id="game-image-container"></div>
+      <div id="game-details">
+        <div class="center">
+          <h2>Nome do jogo</h2>
+          <div class="center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </div>
+        </div>
+        <p>
+          <b>Status: </b>
+          Em progresso
+        </p>
+        <p>
+          <b>Gênero: </b>
+          Gênero 1, Gênero 2
+        </p>
+        <p>
+          <b>Nota: </b>
+          3/5
+        </p>
+        <p>
+          <b>Ínicio: </b>
+          08/08/2021
+        </p>
+        <p>
+          <b>Descrição: </b>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+          accusamus nisi minima quidem impedit, fugit sint autem in minus
+          dolorum maxime? Non provident ratione quibusdam minima magnam totam
+          voluptatibus at.
+        </p>
       </div>
     </main>
   </body>

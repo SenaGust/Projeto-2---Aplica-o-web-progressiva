@@ -10,7 +10,10 @@ self.addEventListener('install', function (event) {
       '/manifest.webmanifest',
       'readme.md',
       'script.js',
-      'style.css'
+      'style.css',
+      'index.css',
+      '/pages/game-detail/game-details.css',
+      '/pages/game-detail/game-details.html',
     ]);
   });
 });
