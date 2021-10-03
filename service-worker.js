@@ -8,12 +8,14 @@ self.addEventListener('install', function (event) {
       '/',
       '/index.html',
       '/manifest.webmanifest',
-      'readme.md',
-      'script.js',
-      'style.css',
-      'index.css',
+      '/readme.md',
+      '/script.js',
+      '/style.css',
+      '/index.css',
       '/pages/game-detail/game-details.css',
       '/pages/game-detail/game-details.html',
+      '/pages/game-creation/game-creation.css',
+      '/pages/game-creation/game-creation.html',
     ]);
   });
 });
