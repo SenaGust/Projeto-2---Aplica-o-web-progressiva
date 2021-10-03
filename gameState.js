@@ -1,4 +1,4 @@
-var jogos = []; //type => {id: string, nome: string, status: string, genero: string, dataInicial: Date, descricao: string, nota: number}
+var jogos = [{id: 'string', nome: 'string', status: 'Lista de desejo', genero: 'string', dataInicial: Date.now().toLocaleString(), descricao: 'string', nota: 1}]; //type => {id: string, nome: string, status: string, genero: string, dataInicial: Date, descricao: string, nota: number}
 
 const uniqueId = () => {
   const lastId = JSON.parse(localStorage.getItem("lastId"));
@@ -53,22 +53,24 @@ var deleteGame = (id) => {
 
 var searchGame = (nomeProcurado) => {
   console.log("jogos", jogos);
-  return jogos.filter((jogo) => jogo.nome.contains(nomeProcurado));
+  return jogos.filter((jogo) => jogo.nome.includes(nomeProcurado));
 };
 
-var filterGame = (status, genero, nota) => {
-  let result = [];
+var filterGame = ({status, genero, nota}) => {
+  let result = jogos;
+  console.log(status, genero, nota);
+  console.log(result);
 
   if (status) {
-    result = jogos.filter((jogo) => jogo.status === status);
+    result = result.filter((jogo) => jogo.status === status);
   }
-
+  console.log(result);
   if (genero) {
-    result = jogos.filter((jogo) => jogo.genero === genero);
+    result = result.filter((jogo) => jogo.genero === genero);
   }
-
+  console.log(result);
   if (nota) {
-    result = jogos.filter((nota) => jogo.nota >= nota);
+    result = result.filter((jogo) => jogo.nota >= nota);
   }
   console.log(result);
   return result;

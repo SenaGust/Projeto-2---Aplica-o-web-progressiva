@@ -11,6 +11,8 @@ self.addEventListener('install', function (event) {
       '/readme.md',
       '/script.js',
       '/style.css',
+      '/index.js',
+      '/gameState.js',
       '/index.css',
       '/pages/game-detail/game-details.css',
       '/pages/game-detail/game-details.html',

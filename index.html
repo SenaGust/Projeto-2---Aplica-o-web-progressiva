@@ -10,7 +10,6 @@
     <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
-    <script src="script.js"></script>
     <header>
       <h2>Listar jogos</h2>
       <div>
@@ -33,7 +32,7 @@
       <label for="search"><b>Pesquisar jogos:</b></label>
       <div class="center">
         <input type="text" id="search" name="search" />
-        <button>
+        <button id="search-button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path
@@ -66,5 +65,8 @@
         <a href="pages/game-detail/game-details.html">Ver mais informações</a>
       </div>
     </main>
+    <script src="script.js"></script>
+    <script src="gameState.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
