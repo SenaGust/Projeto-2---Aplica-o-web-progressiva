@@ -29,7 +29,7 @@ header > div > a {
 
 #search-container > div > input {
   width: calc(100% - 4px);
-  margin-right: 16px;
+  margin-right: 8px;
   height: 28px;
 }
 
