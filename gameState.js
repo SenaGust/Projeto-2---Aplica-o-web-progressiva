@@ -6,7 +6,7 @@ const uniqueId = () => {
 };
 
 var createGame = ({ nome, status, genero, dataInicial, nota, descricao }) => {
-  let jogos = JSON.parse(localStorage.getItem("jogos"));
+  let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
   jogos.push({
     id: uniqueId(),
     nome,
@@ -20,7 +20,7 @@ var createGame = ({ nome, status, genero, dataInicial, nota, descricao }) => {
 };
 
 var editGame = (id, { nome, status, genero, dataInicial, nota, descricao }) => {
-  let jogos = JSON.parse(localStorage.getItem("jogos"));
+  let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
   const jogosAtualizados = jogos.map((jogo) => {
     if (jogo.id === id) {
@@ -34,13 +34,13 @@ var editGame = (id, { nome, status, genero, dataInicial, nota, descricao }) => {
 };
 
 var detalherDeUmJogo = (id) => {
-  let jogos = JSON.parse(localStorage.getItem("jogos"));
+  let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
   return jogos.find((jogo) => jogo.id === id);
 };
 
 var deleteGame = (id) => {
-  let jogos = JSON.parse(localStorage.getItem("jogos"));
+  let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
   const jogosAtualizados = jogos.filter((jogo) => jogo.id !== id);
   jogos = jogosAtualizados;
@@ -48,13 +48,13 @@ var deleteGame = (id) => {
 };
 
 var searchGame = (nomeProcurado) => {
-  let jogos = JSON.parse(localStorage.getItem("jogos"));
+  let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
   return jogos.filter((jogo) => jogo.nome.toLowerCase().includes(nomeProcurado.toLowerCase()));
 };
 
 var filterGame = ({ status, genero, nota }) => {
-  let result = JSON.parse(localStorage.getItem("jogos"));
+  let result = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
   if (status) {
     result = result.filter((jogo) => jogo.status.toLowerCase() === status.toLowerCase());

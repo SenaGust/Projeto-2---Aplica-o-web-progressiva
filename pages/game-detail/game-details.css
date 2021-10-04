@@ -42,6 +42,7 @@ main > #game-details > div {
   justify-content: space-between;
 }
 
-main > #game-details > div > div > svg {
+main > #game-details > div > div > button {
+  all: unset;
   margin-left: 8px;
 }

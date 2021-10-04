@@ -4,7 +4,7 @@ const formatJogos = ({ id, nome, status, genero, nota }) => {
     <p><b>Status: </b>${status}</p>
     <p><b>Genero: </b>${genero}</p>
     <p><b>Nota: </b>${nota}/5</p>
-    <a href="pages/game-detail/game-details.html">Ver mais informações</a>
+    <button id="details-button-${id}"><a>Ver mais informações</a></button>
   </div>`;
 };
 
@@ -30,7 +30,7 @@ document.getElementById("list-games").innerHTML = filterGame({
   .map((jogo) => formatJogos(jogo))
   .join("");
 
-const setSearchFunction = (event) => {
+document.getElementById("search-button").onclick = (event) => {
   event.preventDefault();
   const searchValue = document.getElementById("search").value;
 
@@ -38,4 +38,23 @@ const setSearchFunction = (event) => {
     .map((jogo) => formatJogos(jogo))
     .join("");
 };
-document.getElementById("search-button").onclick = setSearchFunction;
+
+filterGame({
+  status:
+    searchValues.has("nota") && statusFilterValue !== "null"
+      ? decodeURI(statusFilterValue)
+      : null,
+  genero:
+    searchValues.has("nota") && generoFilterValue !== "null"
+      ? decodeURI(generoFilterValue)
+      : null,
+  nota:
+    searchValues.has("nota") && notaFilterValue !== "null"
+      ? decodeURI(notaFilterValue)
+      : null,
+}).forEach((jogo) => {
+  document.getElementById("details-button-"+jogo.id).onclick = () => {
+    const gameId = localStorage.setItem("gameDetailsId", jogo.id);
+    window.location.pathname = "/pages/game-detail/game-details.html";
+  };
+});

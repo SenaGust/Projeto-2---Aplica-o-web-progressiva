@@ -16,6 +16,7 @@ self.addEventListener('install', function (event) {
       '/index.css',
       '/pages/game-detail/game-details.css',
       '/pages/game-detail/game-details.html',
+      '/pages/game-detail/game-details.js',
       '/pages/game-creation/game-creation.css',
       '/pages/game-creation/game-creation.html',
       '/pages/game-creation/game-creation.js',

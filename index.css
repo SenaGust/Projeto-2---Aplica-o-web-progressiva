@@ -51,7 +51,7 @@ main > #game-container {
 main > #game-container > h2 {
   margin-bottom: 8px;
 }
-main > #game-container > a {
+main > #game-container > button {
   margin-top: 8px;
   display: inline-block;
 }
