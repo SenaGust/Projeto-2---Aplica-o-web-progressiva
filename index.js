@@ -54,7 +54,7 @@ filterGame({
       : null,
 }).forEach((jogo) => {
   document.getElementById("details-button-"+jogo.id).onclick = () => {
-    const gameId = localStorage.setItem("gameDetailsId", jogo.id);
+    const gameId = localStorage.setItem("jogoSelecionado", jogo.id);
     window.location.pathname = "/pages/game-detail/game-details.html";
   };
 });

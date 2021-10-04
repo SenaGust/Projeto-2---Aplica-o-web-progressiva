@@ -1,4 +1,4 @@
-const gameId = localStorage.getItem("gameDetailsId");
+const gameId = localStorage.getItem("jogoSelecionado");
 
 const formatGame = ({ nome, status, genero, dataInicial, descricao, nota }) => {
   const [ano, mes, dia] = dataInicial.split("-");
@@ -57,7 +57,6 @@ document.getElementById("delete-button").onclick = () => {
   window.location.pathname = "";
 };
 
-document.getElementById("edit-button").onclick = () => {
-  localStorage.setItem("jogoParaAtualizar", gameId);
+document.getElementById("edit-button").onclick = () => { 
   window.location.pathname = "./pages/game-edition/game-edition.html";
 };

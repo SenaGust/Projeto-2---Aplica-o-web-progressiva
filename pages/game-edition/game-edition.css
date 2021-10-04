@@ -1,0 +1,49 @@
+header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+header > a > svg {
+  margin-right: 8px;
+}
+
+svg {
+  height: 32px;
+  width: 32px;
+  fill: black;
+  display: flex;
+  align-items: center;
+}
+
+select {
+  width: 100%;
+}
+
+textarea {
+  width: calc(100% - 2px);
+  resize: none;
+}
+
+input {
+  width: calc(100% - 4px);
+}
+
+form {
+  display: grid;
+  grid-row-gap: 16px;
+}
+
+form > #edit-game-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+form > #edit-game-actions > button {
+  margin-top: 16px;
+  margin-left: 16px;
+  padding: 4px 8px;
+}
+form > #edit-game-actions > button > a {
+  all: unset;
+}

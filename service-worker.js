@@ -1,35 +1,37 @@
 // Define o nome do cache atual, considerando a sua versão.
-var cacheName = 'app-topicos-v1.0';
+var cacheName = "app-topicos-v1.0";
 
 // Armazena todos os arquivos no cache atual
-self.addEventListener('install', function (event) {
+self.addEventListener("install", function (event) {
   caches.open(cacheName).then((cache) => {
     cache.addAll([
-      '/',
-      '/index.html',
-      '/manifest.webmanifest',
-      '/readme.md',
-      '/script.js',
-      '/style.css',
-      '/index.js',
-      '/gameState.js',
-      '/index.css',
-      '/pages/game-detail/game-details.css',
-      '/pages/game-detail/game-details.html',
-      '/pages/game-detail/game-details.js',
-      '/pages/game-creation/game-creation.css',
-      '/pages/game-creation/game-creation.html',
-      '/pages/game-creation/game-creation.js',
-      '/pages/game-filter/game-filter.css',
-      '/pages/game-filter/game-filter.html'
+      "/",
+      "/index.html",
+      "/manifest.webmanifest",
+      "/readme.md",
+      "/script.js",
+      "/style.css",
+      "/index.js",
+      "/gameState.js",
+      "/index.css",
+      "/pages/game-detail/game-details.css",
+      "/pages/game-detail/game-details.html",
+      "/pages/game-detail/game-details.js",
+      "/pages/game-creation/game-creation.css",
+      "/pages/game-creation/game-creation.html",
+      "/pages/game-creation/game-creation.js",
+      "/pages/game-creation/game-creation.css",
+      "/pages/game-creation/game-creation.html",
+      "/pages/game-creation/game-creation.js",
+      "/pages/game-filter/game-filter.css",
+      "/pages/game-filter/game-filter.html",
     ]);
   });
 });
 
-
 // Recupera todos os nomes de cache e apaga aqueles
 // que forem diferentes do cache atual
-self.addEventListener('activate', (e) => {
+self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys().then((keyList) => {
       return Promise.all(
@@ -43,11 +45,10 @@ self.addEventListener('activate', (e) => {
   );
 });
 
-
 // Tenta servir o arquivo do cache atual. Se não for possível,
 // baixa o recurso da web e o armazena localmente, antes de entregar
 // uma cópia para o usuário.
-self.addEventListener('fetch', function (event) {
+self.addEventListener("fetch", function (event) {
   let resposta = caches.open(cacheName).then((cache) => {
     return cache.match(event.request).then((recurso) => {
       if (recurso) return recurso;
