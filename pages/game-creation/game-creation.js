@@ -1,3 +1,4 @@
+//Função que adiciona o evento ao botão cadastrar jogo
 const setCreateFunction = (event) => {  
   event.preventDefault();
   const nome = document.getElementById("nome").value;

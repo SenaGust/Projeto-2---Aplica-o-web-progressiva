@@ -1,5 +1,7 @@
+//Pega o id do jogo do localStorage
 const gameId = localStorage.getItem("jogoSelecionado");
 
+//Função que formata as informações de um jogo para o html
 const formatGame = ({ nome, status, genero, dataInicial, descricao, nota }) => {
   const [ano, mes, dia] = dataInicial.split("-");
   const formattedDate = new Date(ano, mes-1, dia).toLocaleDateString();
@@ -48,15 +50,18 @@ const formatGame = ({ nome, status, genero, dataInicial, descricao, nota }) => {
    </div>`;
 };
 
+//Função que adiciona os detalhes de um jogo formatado ao html
 document.getElementById("game-details").innerHTML = formatGame(
   detalherDeUmJogo(gameId)
 );
 
+// Função que adiciona o evento de deleção de um jogo ao botão
 document.getElementById("delete-button").onclick = () => {
   deleteGame(gameId);
   window.location.pathname = "";
 };
 
+// Função que adiciona o evento de edição de um jogo ao botão
 document.getElementById("edit-button").onclick = () => { 
   window.location.pathname = "./pages/game-edition/game-edition.html";
 };

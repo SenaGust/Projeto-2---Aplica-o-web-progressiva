@@ -1,13 +1,13 @@
 {
-  "name": "Minha primeira PWA",
-  "short_name": "PWA",
-  "description": "Esta é a primeira PWA que eu criei para aprender como se faz isso.",
+  "name": "Meus jogos",
+  "short_name": "Meus jogos", 
+  "description": "Esta e uma biblioteca pessoal que ira armazenar os seus jogos que esta jogando, esperando para jogar ou finalizados",
   "lang": "pt-BR",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#f66",
+  "theme_color": "#000",
   "icons": [{
       "src": "/imagens/icones/android-icon-36x36.png",
       "sizes": "36x36",

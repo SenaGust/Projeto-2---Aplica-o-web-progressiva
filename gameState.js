@@ -1,3 +1,4 @@
+//Função que cria um id unico
 const uniqueId = () => {
   const lastId = localStorage.getItem("lastId");
   let newlastId = (lastId ? parseInt(lastId) + 1 : 0).toString();
@@ -5,6 +6,7 @@ const uniqueId = () => {
   return newlastId;
 };
 
+//Função que cria um jogo e salva no localStorage
 var createGame = ({ nome, status, genero, dataInicial, nota, descricao }) => {
   let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
   jogos.push({
@@ -19,6 +21,7 @@ var createGame = ({ nome, status, genero, dataInicial, nota, descricao }) => {
   localStorage.setItem("jogos", JSON.stringify(jogos));
 };
 
+//Função que edita um jogo e salva no localStorage
 var editGame = (id, { nome, status, genero, dataInicial, nota, descricao }) => {
   let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
@@ -33,12 +36,14 @@ var editGame = (id, { nome, status, genero, dataInicial, nota, descricao }) => {
   localStorage.setItem("jogos", JSON.stringify(jogosAtualizados));
 };
 
+//Função que retorna os detalhes de um jogo
 var detalherDeUmJogo = (id) => {
   let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
   return jogos.find((jogo) => jogo.id === id);
 };
 
+//Função que deleta um jogo
 var deleteGame = (id) => {
   let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
@@ -47,12 +52,14 @@ var deleteGame = (id) => {
   localStorage.setItem("jogos", JSON.stringify(jogosAtualizados));
 };
 
+//Função que faz uma pesquisa por nome nos array de jogos
 var searchGame = (nomeProcurado) => {
   let jogos = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 
   return jogos.filter((jogo) => jogo.nome.toLowerCase().includes(nomeProcurado.toLowerCase()));
 };
 
+//Função que filtra os jogos
 var filterGame = ({ status, genero, nota }) => {
   let result = localStorage.getItem("jogos") ? JSON.parse(localStorage.getItem("jogos")) : [];
 

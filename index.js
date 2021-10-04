@@ -1,3 +1,4 @@
+// Função que formata o jogo para ser exibido em html
 const formatJogos = ({ id, nome, status, genero, nota }) => {
   return `<div id="game-container" key=${id}>
     <h2>${nome}</h2>
@@ -8,11 +9,13 @@ const formatJogos = ({ id, nome, status, genero, nota }) => {
   </div>`;
 };
 
+//Pegando valoes de filtro para realizar o filtro
 const searchValues = new URLSearchParams(window.location.search);
 const statusFilterValue = searchValues.get("status");
 const generoFilterValue = searchValues.get("genero");
 const notaFilterValue = searchValues.get("nota");
 
+//Realizando o filtro e inserindo no html
 document.getElementById("list-games").innerHTML = filterGame({
   status:
     searchValues.has("nota") && statusFilterValue !== "null"
@@ -30,6 +33,7 @@ document.getElementById("list-games").innerHTML = filterGame({
   .map((jogo) => formatJogos(jogo))
   .join("");
 
+// adicionando evento ao clicar no search button
 document.getElementById("search-button").onclick = (event) => {
   event.preventDefault();
   const searchValue = document.getElementById("search").value;
@@ -39,6 +43,7 @@ document.getElementById("search-button").onclick = (event) => {
     .join("");
 };
 
+// Adicionando o evento aos botões "ver mais informações"
 filterGame({
   status:
     searchValues.has("nota") && statusFilterValue !== "null"

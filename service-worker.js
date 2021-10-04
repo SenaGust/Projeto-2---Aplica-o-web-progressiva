@@ -6,6 +6,7 @@ self.addEventListener("install", function (event) {
   caches.open(cacheName).then((cache) => {
     cache.addAll([
       "/",
+      
       "/index.html",
       "/manifest.webmanifest",
       "/readme.md",
